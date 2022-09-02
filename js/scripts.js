@@ -9,6 +9,6 @@ let pokemonList = [
     {dexNum: '#008', name: 'Wartortle', height: '1.0 m', types:['Water'] },
     {dexNum: '#009', name: 'Blastoise', height: '1.6 m', types:['Water'] },
 ]
-for (let i = 0; i = pokemoonList.length; i++) {
+for (let i = 0; i = pokemonList.length; i++) {
     document.write(pokemonList[i].dexNum + pokemonList[i].name + pokemonList[i].height)
 }
