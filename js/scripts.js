@@ -19,6 +19,6 @@ for (let i = 0; i < pokemonList.length; i++) {
         document.write('Medium. ')
     }
       if (pokemonList[i].height >= 1) {
-        document.write('Large. ')
+        document.write('Large, Wow, thats big! ')
     }
 }
