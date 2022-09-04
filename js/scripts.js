@@ -13,12 +13,12 @@ for (let i = 0; i < pokemonList.length; i++) {
     document.write('Dex Number: ', pokemonList[i].dexNum, ' Name: ', 
       pokemonList[i].name, ' Height: ',  pokemonList[i].height, ' ');
       if (pokemonList[i].height < .7) {
-        document.write('Small. ')
+        document.write('Small.<br>')
     }
     if (pokemonList[i].height >= .7 && pokemonList[i].height < 1) {
-        document.write('Medium. ')
+        document.write('Medium.<br>')
     }
       if (pokemonList[i].height >= 1) {
-        document.write('Large, Wow, thats big! ')
+        document.write('Large, Wow, thats big!<br>')
     }
 }
