@@ -18,7 +18,10 @@ for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height >= .7 && pokemonList[i].height < 1) {
         document.write('Medium.<br>')
     }
-      if (pokemonList[i].height >= 1) {
-        document.write('Large, Wow, thats big!<br>')
+    if (pokemonList[i].height >= 2) {
+      document.write('Large, Wow, thats big!<br>')
     }
-}
+     else if (pokemonList[i].height < 2 && pokemonList[i].height >= 1) {
+        document.write('Large.<br>')
+      }
+  }
