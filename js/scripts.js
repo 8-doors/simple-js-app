@@ -9,19 +9,29 @@ let pokemonList = [
     {dexNum: '#008', name: 'Wartortle', height: '1.0', types:['Water'] },
     {dexNum: '#009', name: 'Blastoise', height: '1.6',  types:['Water'] },
 ]
+
+let max = pokemonList[0].height
+
+for (let x = 0; x < pokemonList.length; x++){
+  if (pokemonList[x].height > max) {
+    max = pokemonList[x].height
+  } 
+}
+
 for (let i = 0; i < pokemonList.length; i++) {
     document.write('Dex Number: ', pokemonList[i].dexNum, ' Name: ', 
       pokemonList[i].name, ' Height: ',  pokemonList[i].height, ' ');
-      if (pokemonList[i].height < .7) {
-        document.write('Small.<br>')
+    if (pokemonList[i].height < .7) {
+        document.write('Small.')
     }
-    if (pokemonList[i].height >= .7 && pokemonList[i].height < 1) {
-        document.write('Medium.<br>')
+    else if (pokemonList[i].height >= .7 && pokemonList[i].height < 1) {
+        document.write('Medium.')
     }
-    if (pokemonList[i].height >= 2) {
-      document.write('Large, Wow, thats big!<br>')
+    else if (pokemonList[i].height == max){
+      document.write ('Large, Wow, thats big!')
     }
-     else if (pokemonList[i].height < 2 && pokemonList[i].height >= 1) {
-        document.write('Large.<br>')
-      }
-  }
+    else if (pokemonList[i].height >= 1) {
+      document.write('Large.');
+    }
+    document.write('<br>')
+} 
