@@ -48,5 +48,4 @@ pokemonRepository.getAll().forEach(function(pokemon) {
   document.write('Large.');
   }
   document.write('</p>')
-  console.log(pokemon)
 });
