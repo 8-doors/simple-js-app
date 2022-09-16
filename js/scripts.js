@@ -1,3 +1,4 @@
+let pokemonRepository = (function () {
 let pokemonList = [
     {dexNum: '#001', name: 'Bulbasaur', height: '0.7', types:['Grass', 'Poison'] },
     {dexNum: '#002', name: 'Ivysaur', height: '1.0', types:['Grass', 'Poison'] },
@@ -9,16 +10,29 @@ let pokemonList = [
     {dexNum: '#008', name: 'Wartortle', height: '1.0', types:['Water'] },
     {dexNum: '#009', name: 'Blastoise', height: '1.6',  types:['Water'] },
 ]
+function add(pokemon){
+pokemonList.push(pokemon);
+};
 
-let max = pokemonList[0].height
+function getAll(){
+return pokemonList;
+};
 
-pokemonList.forEach(function(pokemon) {
+return {
+  add: add,
+  getAll: getAll
+}; 
+})();
+
+let max = pokemonRepository.getAll()[0].height
+
+pokemonRepository.getAll().forEach(function(pokemon) {
 if (pokemon.height > max) {
 max = pokemon.height
 }
 });
 
-pokemonList.forEach(function(pokemon) {
+pokemonRepository.getAll().forEach(function(pokemon) {
   document.write('<p class="pokemon" id="', pokemon.dexNum, '">Dex Nember: ', pokemon.dexNum, ' Name: ', 
   pokemon.name, ' Height: ', pokemon.height, ' ');
   if (pokemon.height < .7) {
