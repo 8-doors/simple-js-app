@@ -12,26 +12,27 @@ let pokemonList = [
 
 let max = pokemonList[0].height
 
-for (let x = 0; x < pokemonList.length; x++){
-  if (pokemonList[x].height > max) {
-    max = pokemonList[x].height
-  } 
+pokemonList.forEach(function(pokemon) {
+if (pokemon.height > max) {
+max = pokemon.height
 }
+});
 
-for (let i = 0; i < pokemonList.length; i++) {
-    document.write('Dex Number: ', pokemonList[i].dexNum, ' Name: ', 
-      pokemonList[i].name, ' Height: ',  pokemonList[i].height, ' ');
-    if (pokemonList[i].height < .7) {
-        document.write('Small.')
-    }
-    else if (pokemonList[i].height >= .7 && pokemonList[i].height < 1) {
-        document.write('Medium.')
-    }
-    else if (pokemonList[i].height == max){
-      document.write ('Large, Wow, thats big!')
-    }
-    else if (pokemonList[i].height >= 1) {
-      document.write('Large.');
-    }
-    document.write('<br>')
-} 
+pokemonList.forEach(function(pokemon) {
+  document.write('<p class="pokemon" id="', pokemon.dexNum, '">Dex Nember: ', pokemon.dexNum, ' Name: ', 
+  pokemon.name, ' Height: ', pokemon.height, ' ');
+  if (pokemon.height < .7) {
+    document.write('Small.')
+  }
+  else if (pokemon.height >= .7 && pokemon.height < 1) {
+    document.write('Medium.')
+  }
+  else if (pokemon.height == max){
+  document.write ('Large, Wow, thats big!')
+  }
+  else if (pokemon.height >= 1) {
+  document.write('Large.');
+  }
+  document.write('</p>')
+  console.log(pokemon)
+});
