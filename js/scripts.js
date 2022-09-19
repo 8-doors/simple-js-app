@@ -100,20 +100,20 @@ let pokemonRepository = (function () {
     {dexNum: '#098', name: 'Krabby', height: '0.4', types:['Water'] },
     {dexNum: '#099', name: 'Kingler', height: '1.3', types:['Water'] },
     {dexNum: '#100', name: 'Voltorb', height: '0.5', types:['Electric'] },
-]
+  ]
 
-function add(pokemon){
-  pokemonList.push(pokemon);
-};
+  function add(pokemon){
+    pokemonList.push(pokemon);
+  };
 
-function getAll(){
-  return pokemonList;
-};
+  function getAll(){
+    return pokemonList;
+  };
 
-return {
-  add: add,
-  getAll: getAll
-}; 
+  return {
+    add: add,
+    getAll: getAll
+  }; 
 })();
 
 let max = pokemonRepository.getAll()[0].height
@@ -121,7 +121,7 @@ let max = pokemonRepository.getAll()[0].height
 pokemonRepository.getAll().forEach(function(pokemon) {
   if (pokemon.height > max) {
     max = pokemon.height
-}
+  }
 });
 
 pokemonRepository.getAll().forEach(function(pokemon) {
@@ -143,6 +143,6 @@ pokemonRepository.getAll().forEach(function(pokemon) {
   else if (pokemon.height >= 1) {
     document.write('Large.');
   }
-  
+
   document.write('</p>')
 });
