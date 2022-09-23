@@ -40,6 +40,6 @@ font-weight: 400;
 }
 
 .pokemon button:hover {
-    opacity: 0.9;
+    opacity: 0.92;
     cursor: pointer;
 }
