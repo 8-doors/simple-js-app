@@ -16,29 +16,31 @@ body {
     background-color: #a8c2f0;
 }
 
+/*-----Pokemon List Styles-----*/
+
 .pokemon-list {
     list-style-type: none;
       
 }
 
 .pokemon button {
-border: 1;
-border-width: 1.5px;
-border-color: #cc7e00;
-border-radius: 2.5px;
-display: inline-block;
-font-family: inherit;
-background-color: #ffe0ad;
-color: #000000;
-text-decoration: none;
-padding-top: 15px;
-padding-bottom: 15px;
-padding-inline: 10px;
-border-bottom: 2px solid rgba(204, 126, 0, alpha);
-margin-bottom: 5px;
-font-family: 'Silkscreen', sans-serif;
-font-size: 15px;
-font-weight: 400;
+    border: 1;
+    border-width: 1.5px;
+    border-color: #cc7e00;
+    border-radius: 2.5px;
+    display: inline-block;
+    font-family: inherit;
+    background-color: #ffe0ad;
+    color: #000000;
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-inline: 10px;
+    border-bottom: 2px solid rgba(204, 126, 0, alpha);
+    margin-bottom: 5px;
+    font-family: 'Silkscreen', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
 }
 
 .pokemon button:hover {
