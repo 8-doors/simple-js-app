@@ -110,14 +110,22 @@ let pokemonRepository = (function () {
     return pokemonList;
   };
 
+  function showDetials(pokemon){
+    console.log(pokemon)
+  };
+
   function addListItem(pokemon){
     let pokemon_list = document.querySelector('.pokemon-list');
     let createli = document.createElement('li');
     let createbut = document.createElement('button');
 
-    createbut
+
 
     createbut.innerText = pokemon.dexNum + ' ' + pokemon.name;
+
+    createbut.addEventListener('click', function(pokemon) {
+      console.log(createbut.innerText)
+    });    
 
     createli.appendChild(createbut);
 
@@ -129,7 +137,8 @@ let pokemonRepository = (function () {
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    showdetails: showDetials
   }; 
 })();
 
