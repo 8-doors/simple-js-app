@@ -124,8 +124,6 @@ pokemonRepository.getAll().forEach(function(pokemon) {
   }
 });
 
-document.write('<ul class="pokemon-list"></ul>');
-
 
 pokemonRepository.getAll().forEach(function(pokemon) {
   

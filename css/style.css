@@ -1,0 +1,45 @@
+/*
+Colors Used
+Vermilion: #ea0f0b
+Baby Blue Eyes: #a8c2f0
+Navajo White: #ffe0ad
+Bronze: #cc7e00
+
+Fonts Used
+VT323:https://fonts.google.com/specimen/Silkscreen?category=Display,Monospace
+Silkscreen:https://fonts.google.com/specimen/Silkscreen?category=Display,Monospace
+*/
+
+body {
+    background-color: #a8c2f0;
+}
+
+.pokemon-list {
+    list-style-type: none;
+      
+}
+
+.pokemon button {
+border: 1;
+border-width: 1.5px;
+border-color: #cc7e00;
+border-radius: 2.5px;
+display: inline-block;
+font-family: inherit;
+background-color: #ffe0ad;
+color: #000000;
+text-decoration: none;
+padding-top: 15px;
+padding-bottom: 15px;
+padding-inline: 10px;
+border-bottom: 2px solid rgba(204, 126, 0, alpha);
+margin-bottom: 5px;
+font-family: 'Silkscreen', sans-serif;
+font-size: 15px;
+font-weight: 400;
+}
+
+.pokemon button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
