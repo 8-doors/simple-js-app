@@ -124,25 +124,42 @@ pokemonRepository.getAll().forEach(function(pokemon) {
   }
 });
 
+document.write('<ul class="pokemon-list"></ul>');
+
+
 pokemonRepository.getAll().forEach(function(pokemon) {
-  document.write('<p class="pokemon" id="', pokemon.dexNum, '">Dex Nember: ', pokemon.dexNum, ' Name: ', 
-  pokemon.name, ' Height: ', pokemon.height, ' ');
+  
+let pokemon_list = document.querySelector('.pokemon-list');
+
+let createli = document.createElement('li');
+
+let createbut = document.createElement('button');
+
+  createbut
+
+  createbut.innerText = pokemon.dexNum + ' ' + pokemon.name;
+
+  createli.appendChild(createbut);
+
+  pokemon_list.appendChild(createli);
+
+  createli.classList.add('pokemon')
 
   if (pokemon.height < .7) {
-    document.write('Small.')
+    
   }
 
   else if (pokemon.height >= .7 && pokemon.height < 1) {
-    document.write('Medium.')
+    
   }
 
   else if (pokemon.height == max){
-    document.write ('Large, Wow, thats big!')
+    
   }
 
   else if (pokemon.height >= 1) {
-    document.write('Large.');
+    
   }
 
-  document.write('</p>')
+  
 });
