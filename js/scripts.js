@@ -20,8 +20,6 @@ let pokemonRepository = (function () {
     let createli = document.createElement('li');
     let createbut = document.createElement('button');
 
-
-
     createbut.innerText = pokemon.dexNum + ' ' + pokemon.name;
 
     createbut.addEventListener('click', function(pokemon) {
@@ -33,6 +31,10 @@ let pokemonRepository = (function () {
     pokemon_list.appendChild(createli);
 
     createli.classList.add('pokemon')
+  };
+
+  function loadList(){
+
   };
 
   return {
