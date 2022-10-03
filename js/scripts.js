@@ -33,46 +33,60 @@ let pokemonRepository = (function () {
     createli.classList.add('pokemon')
   };
 
-  function loadList(){
-
+  function loadList() {
+    return fetch ('https://pokeapi.co/api/v2/pokemon/?limit=151').then(function(response) {
+      return response.json;
+    }).then(function(json) {
+      json.results.forEach(function(item) {
+        let pokemon = {
+          name: item.name,
+          deatsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e)
+    });
   };
 
   return {
     add: add,
     getAll: getAll,
     addListItem: addListItem,
-    showdetails: showDetials
+    showdetails: showDetials,
+    loadList: loadList,
   }; 
 })();
 
-let max = pokemonRepository.getAll()[0].height
+//let max = pokemonRepository.getAll()[0].height
 
-pokemonRepository.getAll().forEach(function(pokemon) {
-  if (pokemon.height > max) {
-    max = pokemon.height
-  }
-});
+//pokemonRepository.getAll().forEach(function(pokemon) {
+  //if (pokemon.height > max) {
+    //max = pokemon.height
+  //}
+//});
 
+pokemonRepository.loadList().then(function() {
 
-pokemonRepository.getAll().forEach(function(pokemon) {
+  pokemonRepository.getAll().forEach(function(pokemon) {
   
-  pokemonRepository.addListItem(pokemon)
+    pokemonRepository.addListItem(pokemon)
 
-  if (pokemon.height < .7) {
+    if (pokemon.height < .7) {
     
-  }
+    }
 
-  else if (pokemon.height >= .7 && pokemon.height < 1) {
+    else if (pokemon.height >= .7 && pokemon.height < 1) {
     
-  }
+   }
 
-  else if (pokemon.height == max){
+    else if (pokemon.height == max){
     
-  }
+    }
 
-  else if (pokemon.height >= 1) {
+   else if (pokemon.height >= 1) {
     
-  }
+    }
 
-  
+  });
 });
