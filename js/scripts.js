@@ -1,7 +1,5 @@
 let pokemonRepository = (function () {
-  let pokemonList = [
-    
-  ]
+  let pokemonList = [];
 
   function add(pokemon){
     pokemonList.push(pokemon);
@@ -106,21 +104,21 @@ pokemonRepository.loadList().then(function() {
   
     pokemonRepository.addListItem(pokemon)
 
-    if (pokemon.height < .7) {
+   // if (pokemon.height < .7) {
     
-    }
+    //}
 
-    else if (pokemon.height >= .7 && pokemon.height < 1) {
+   // else if (pokemon.height >= .7 && pokemon.height < 1) {
     
-   }
+   //}
 
-    else if (pokemon.height == max){
+    //else if (pokemon.height == max){
     
-    }
+    //}
 
-   else if (pokemon.height >= 1) {
+   //else if (pokemon.height >= 1) {
     
-    }
+    //}
 
   });
 });
