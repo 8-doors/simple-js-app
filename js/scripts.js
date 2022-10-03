@@ -12,7 +12,25 @@ let pokemonRepository = (function () {
   };
 
   function showDetials(pokemon){
-    console.log(pokemon)
+    loadDetails(pokemon).then(function() {  
+      console.log(pokemon)
+    });
+  };
+
+  function getDex(pokemon) {
+    return fetch (pokemon.deatsUrl).then(function(response) {
+      return response.json;
+    }).then(function(detail) {
+      if(detail.id >= 100) {
+        pokemon.dexNum = '#' + detail.id;
+      }
+      else if(detail.id <= 99) {
+        pokemon.dexNum = '#0' + detail.id
+      }
+      else if(detail.id <= 9) {
+        pokemon.dexNum = '#00' + detail.id
+      }
+    })
   };
 
   function addListItem(pokemon){
@@ -20,10 +38,12 @@ let pokemonRepository = (function () {
     let createli = document.createElement('li');
     let createbut = document.createElement('button');
 
+    getDex();
+
     createbut.innerText = pokemon.dexNum + ' ' + pokemon.name;
 
     createbut.addEventListener('click', function(pokemon) {
-      console.log(createbut.innerText)
+      console.log(showDetials)
     });    
 
     createli.appendChild(createbut);
@@ -44,8 +64,20 @@ let pokemonRepository = (function () {
         };
         add(pokemon);
       });
-    }).catch(function (e) {
-      console.error(e)
+    }).catch(function (error) {
+      console.error(error);
+    })
+  };
+
+  function loadDetails(item) {
+    return fetch(item.deatsUrl).then(function(response) {
+      return response.json();
+    }).then(function(details) {
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types
+    }).catch(function(e) {
+      console.error(e);
     });
   };
 
@@ -53,8 +85,10 @@ let pokemonRepository = (function () {
     add: add,
     getAll: getAll,
     addListItem: addListItem,
-    showdetails: showDetials,
+    showDetails: showDetials,
     loadList: loadList,
+    loadDetails: loadDetails,
+    getDex: getDex,
   }; 
 })();
 
