@@ -10,25 +10,9 @@ let pokemonRepository = (function () {
   };
 
   function showDetials(pokemon){
-    loadDetails(pokemon).then(function() {  
+    loadDetails(pokemon).then(function(pokemon) {  
       console.log(pokemon)
     });
-  };
-
-  function getDex(pokemon) {
-    return fetch (pokemon.deatsUrl).then(function(response) {
-      return response.json;
-    }).then(function(detail) {
-      if(detail.id >= 100) {
-        pokemon.dexNum = '#' + detail.id;
-      }
-      else if(detail.id <= 99) {
-        pokemon.dexNum = '#0' + detail.id
-      }
-      else if(detail.id <= 9) {
-        pokemon.dexNum = '#00' + detail.id
-      }
-    })
   };
 
   function addListItem(pokemon){
@@ -36,12 +20,14 @@ let pokemonRepository = (function () {
     let createli = document.createElement('li');
     let createbut = document.createElement('button');
 
-    getDex();
+    getDex(pokemon);
+
+    useDex(pokemon);
 
     createbut.innerText = pokemon.dexNum + ' ' + pokemon.name;
 
     createbut.addEventListener('click', function(pokemon) {
-      console.log(showDetials)
+      showDetials(pokemon);
     });    
 
     createli.appendChild(createbut);
@@ -53,7 +39,7 @@ let pokemonRepository = (function () {
 
   function loadList() {
     return fetch ('https://pokeapi.co/api/v2/pokemon/?limit=151').then(function(response) {
-      return response.json;
+      return response.json();
     }).then(function(json) {
       json.results.forEach(function(item) {
         let pokemon = {
@@ -67,6 +53,7 @@ let pokemonRepository = (function () {
     })
   };
 
+
   function loadDetails(item) {
     return fetch(item.deatsUrl).then(function(response) {
       return response.json();
@@ -79,6 +66,24 @@ let pokemonRepository = (function () {
     });
   };
 
+  function getDex(pokemon) {
+    return fetch (pokemon.deatsUrl).then(function(response) {
+      return response.json;
+    })
+  };
+
+  function useDex(pokemon) {
+    if(pokemon.id >= 100) {
+      pokemon.dexNum = '#' + pokemon.id;
+    }
+    else if(pokemon.id <= 99) {
+      pokemon.dexNum = '#0' + pokemon.id
+    }
+    else if(pokemon.id <= 9) {
+      pokemon.dexNum = '#00' + pokemon.id
+    }
+  }
+
   return {
     add: add,
     getAll: getAll,
@@ -87,6 +92,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     getDex: getDex,
+    useDex: useDex,
   }; 
 })();
 
