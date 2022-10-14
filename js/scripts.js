@@ -54,13 +54,13 @@ let pokemonRepository = (function () {
   };
 
 
-  function loadDetails(item) {
-    return fetch(item.deatsUrl).then(function(response) {
+  function loadDetails(pokemon) {
+    return fetch(pokemon.deatsUrl).then(function(response) {
       return response.json();
     }).then(function(details) {
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = details.types
+      pokemon.imageUrl = details.sprites.front_default;
+      pokemon.height = details.height;
+      pokemon.types = details.types
     }).catch(function(e) {
       console.error(e);
     });
