@@ -10,7 +10,7 @@ let pokemonRepository = (function () {
   };
 
   function showDetials(pokemon){
-    loadDetails(pokemon).then(function(pokemon) {  
+    loadDetails(pokemon).then(function () {  
       console.log(pokemon)
     });
   };
@@ -41,7 +41,7 @@ let pokemonRepository = (function () {
     return fetch ('https://pokeapi.co/api/v2/pokemon/?limit=151').then(function(response) {
       return response.json();
     }).then(function(json) {
-      json.results.forEach(function(item) {
+      json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
           deatsUrl: item.url
@@ -54,13 +54,14 @@ let pokemonRepository = (function () {
   };
 
 
-  function loadDetails(pokemon) {
-    return fetch(pokemon.deatsUrl).then(function(response) {
+  function loadDetails(item) {
+    let url = item.deatsUrl;
+    return fetch(url).then(function(response) {
       return response.json();
     }).then(function(details) {
-      pokemon.imageUrl = details.sprites.front_default;
-      pokemon.height = details.height;
-      pokemon.types = details.types
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types
     }).catch(function(e) {
       console.error(e);
     });
