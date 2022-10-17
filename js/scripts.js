@@ -2,7 +2,15 @@ let pokemonRepository = (function () {
   let pokemonList = [];
 
   function add(pokemon){
-    pokemonList.push(pokemon);
+    if (
+      typeof pokemon === 'object' &&
+      'name' in pokemon &&
+      'detailsUrl' in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    }  else {
+      console.log('error adding')
+    }
   };
 
   function getAll(){
@@ -44,7 +52,7 @@ let pokemonRepository = (function () {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          deatsUrl: item.url
+          detailsUrl: item.url
         };
         add(pokemon);
       });
@@ -68,7 +76,7 @@ let pokemonRepository = (function () {
   };
 
   function getDex(pokemon) {
-    return fetch (pokemon.deatsUrl).then(function(response) {
+    return fetch (pokemon.detailsUrl).then(function(response) {
       return response.json;
     })
   };
