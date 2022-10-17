@@ -2,7 +2,15 @@ let pokemonRepository = (function () {
   let pokemonList = [];
 
   function add(pokemon){
-    pokemonList.push(pokemon);
+    if (
+      typeof pokemon === 'object' &&
+      'name' in pokemon &&
+      'deatsUrl' in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    }  else {
+      console.log('error adding')
+    }
   };
 
   function getAll(){
