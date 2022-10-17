@@ -5,7 +5,7 @@ let pokemonRepository = (function () {
     if (
       typeof pokemon === 'object' &&
       'name' in pokemon &&
-      'deatsUrl' in pokemon
+      'detailsUrl' in pokemon
     ) {
       pokemonList.push(pokemon);
     }  else {
@@ -49,10 +49,10 @@ let pokemonRepository = (function () {
     return fetch ('https://pokeapi.co/api/v2/pokemon/?limit=151').then(function(response) {
       return response.json();
     }).then(function(json) {
-      json.results.forEach(function(item) {
+      json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          deatsUrl: item.url
+          detailsUrl: item.url
         };
         add(pokemon);
         console.log(pokemon)
@@ -64,7 +64,7 @@ let pokemonRepository = (function () {
 
 
   function loadDetails(item) {
-    let url = item.deatsUrl
+    let url = item.deatsUrl;
     return fetch(url).then(function(response) {
       return response.json();
     }).then(function(details) {
@@ -77,7 +77,7 @@ let pokemonRepository = (function () {
   };
 
   function getDex(pokemon) {
-    return fetch (pokemon.deatsUrl).then(function(response) {
+    return fetch (pokemon.detailsUrl).then(function(response) {
       return response.json;
     })
   };
