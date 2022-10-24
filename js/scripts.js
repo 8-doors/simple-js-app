@@ -1,5 +1,6 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
+  let theUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
 
   function add(pokemon){
     if (
@@ -28,13 +29,13 @@ let pokemonRepository = (function () {
     let createli = document.createElement('li');
     let createbut = document.createElement('button');
 
-    getDex(pokemon);
+    //getDex(pokemon);
 
-    useDex(pokemon);
+    //useDex(pokemon);
 
     createbut.innerText = pokemon.dexNum + ' ' + pokemon.name;
 
-    createbut.addEventListener('click', function(pokemon) {
+    createbut.addEventListener('click', function(event) {
       showDetials(pokemon);
     });    
 
@@ -46,16 +47,16 @@ let pokemonRepository = (function () {
   };
 
   function loadList() {
-    return fetch ('https://pokeapi.co/api/v2/pokemon/?limit=151').then(function(response) {
+    return fetch (theUrl).then(function(response) {
       return response.json();
     }).then(function(json) {
       json.results.forEach(function (item) {
-        let pokemon = {
+        let pocket = {
           name: item.name,
           detailsUrl: item.url
         };
-        add(pokemon);
-        console.log(pokemon)
+        add(pocket);
+        console.log(pocket)
       });
     }).catch(function (e) {
       console.error(e);
@@ -64,7 +65,7 @@ let pokemonRepository = (function () {
 
 
   function loadDetails(item) {
-    let url = item.deatsUrl;
+    let url = item.detailsUrl;
     return fetch(url).then(function(response) {
       return response.json();
     }).then(function(details) {
@@ -76,23 +77,23 @@ let pokemonRepository = (function () {
     });
   };
 
-  function getDex(pokemon) {
-    return fetch (pokemon.detailsUrl).then(function(response) {
-      return response.json;
-    })
-  };
+  //function getDex(pokemon) {
+    //return fetch (pokemon.detailsUrl).then(function(response) {
+      //return response.json;
+    //})
+  //};
 
-  function useDex(pokemon) {
-    if(pokemon.id >= 100) {
-      pokemon.dexNum = '#' + pokemon.id;
-    }
-    else if(pokemon.id <= 99) {
-      pokemon.dexNum = '#0' + pokemon.id
-    }
-    else if(pokemon.id <= 9) {
-      pokemon.dexNum = '#00' + pokemon.id
-    }
-  }
+  //function useDex(pokemon) {
+    //if(pokemon.id >= 100) {
+      //pokemon.dexNum = '#' + pokemon.id;
+    //}
+    //else if(pokemon.id <= 99) {
+      //pokemon.dexNum = '#0' + pokemon.id
+    //}
+    //else if(pokemon.id <= 9) {
+      //pokemon.dexNum = '#00' + pokemon.id
+    //}
+  //}
 
   return {
     add: add,
@@ -101,8 +102,8 @@ let pokemonRepository = (function () {
     showDetails: showDetials,
     loadList: loadList,
     loadDetails: loadDetails,
-    getDex: getDex,
-    useDex: useDex,
+    //getDex: getDex,
+    //useDex: useDex,
   }; 
 })();
 
