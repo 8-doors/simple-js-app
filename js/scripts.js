@@ -29,11 +29,9 @@ let pokemonRepository = (function () {
     let createli = document.createElement('li');
     let createbut = document.createElement('button');
 
-    //getDex(pokemon);
+    getDex(pokemon);
 
-    //useDex(pokemon);
-
-    createbut.innerText = pokemon.dexNum + ' ' + pokemon.name;
+    createbut.innerText = pokemon.name;
 
     createbut.addEventListener('click', function(event) {
       showDetials(pokemon);
@@ -77,22 +75,26 @@ let pokemonRepository = (function () {
     });
   };
 
-  //function getDex(pokemon) {
-    //return fetch (pokemon.detailsUrl).then(function(response) {
-      //return response.json;
-    //})
-  //};
+  function getDex(pokemon) {
+    let dexUrl = pokemon.detailsUrl;
+    return fetch (dexUrl).then(function(response) {
+      return response.json();
+    }).then(function (dex) {
+      if(dex.game_indices[3].game_index > 100) {
+        pokemon.dexNum = '#' + dex.game_indices[3].game_index;
+      }
+      else if(dex.game_indices[3].game_index <= 99 && 
+        dex.game_indices[3].game_index > 9) {
+        pokemon.dexNum = '#0' + dex.game_indices[3].game_index
+      }
+      else if(dex.game_indices[3].game_index <= 9) {
+        pokemon.dexNum = '#00' + dex.game_indices[3].game_index
+      }
+    })
+  };
 
   //function useDex(pokemon) {
-    //if(pokemon.id >= 100) {
-      //pokemon.dexNum = '#' + pokemon.id;
-    //}
-    //else if(pokemon.id <= 99) {
-      //pokemon.dexNum = '#0' + pokemon.id
-    //}
-    //else if(pokemon.id <= 9) {
-      //pokemon.dexNum = '#00' + pokemon.id
-    //}
+    //
   //}
 
   return {
@@ -102,8 +104,7 @@ let pokemonRepository = (function () {
     showDetails: showDetials,
     loadList: loadList,
     loadDetails: loadDetails,
-    //getDex: getDex,
-    //useDex: useDex,
+    getDex: getDex,
   }; 
 })();
 
