@@ -106,20 +106,25 @@ let pokemonRepository = (function () {
     let titleElement = document.createElement('h1');
     titleElement.innerText = title;
     let contentElement = document.createElement('p');
-    contentElement.innerText = height + text;
+    contentElement.innerText = 'Height: ' + height + '\n\n' + 'Details: ' + text;
     let linkElement = document.createElement('a');
+    linkElement.classList.add('bulbaLink')
     linkElement.href = 'https://bulbapedia.bulbagarden.net/wiki/' + bulba + '_(Pokémon)';
-    linkElement.classList.add('bulbaLink');
+    linkElement.target = '_blank';
     let linkImgElement = document.createElement('img');
+    linkImgElement.classList.add('bulbaLink');
     linkImgElement.src = 'img/bulba.png';
+    linkImgElement.alt = 'Bulbapedia Logo';
     let imgElement = document.createElement('img');
-    imgElement.src = img
+    imgElement.classList.add('proimg');
+    imgElement.src = img;
+    imgElement.alt = 'Pokemon Profile Image';
     linkElement.appendChild(linkImgElement);
     modal.appendChild(closeButElement);
     modal.appendChild(titleElement);
+    modal.appendChild(imgElement);
     modal.appendChild(contentElement);
     modal.appendChild(linkElement);
-    modal.appendChild(imgElement);
     modalBox.appendChild(modal);
     modalBox.classList.add('is-visible');
   }
@@ -142,13 +147,12 @@ let pokemonRepository = (function () {
   }; 
 })();
 
-//let max = pokemonRepository.getAll()[0].height
-
-//pokemonRepository.getAll().forEach(function(pokemon) {
-  //if (pokemon.height > max) {
-    //max = pokemon.height
-  //}
-//});
+window.addEventListener('keydown', (e) => {
+  let modalBox = document.querySelector('#modal-container');
+  if (e.key === 'Escape' && modalBox.classList.remove('is-visible')) {
+    hideMod();
+  }
+})
 
 pokemonRepository.loadList().then(function() {
 
