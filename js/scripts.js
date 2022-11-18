@@ -20,7 +20,7 @@ let pokemonRepository = (function () {
 
   function showDetials(pokemon){
     loadDetails(pokemon).then(function () {  
-      console.log(pokemon)
+      showMod(pokemon.dexNum + ' ' + pokemon.name, pokemon.height, pokemon.detailsUrl, pokemon.name, pokemon.imageUrl);
     });
   };
 
@@ -93,9 +93,41 @@ let pokemonRepository = (function () {
     })
   };
 
-  //function useDex(pokemon) {
-    //
-  //}
+  function showMod(title, height, text, bulba, img) {
+    let modalBox = document.querySelector('#modal-container');
+    modalBox.classList.add('is-visible');
+    modalBox.innerHTML = '';
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+    let closeButElement = document.createElement('button');
+    closeButElement.classList.add('modal-close');
+    closeButElement.innerText = 'Close';
+    closeButElement.addEventListener('click', hideMod);
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = title;
+    let contentElement = document.createElement('p');
+    contentElement.innerText = height + text;
+    let linkElement = document.createElement('a');
+    linkElement.href = 'https://bulbapedia.bulbagarden.net/wiki/' + bulba + '_(Pokémon)';
+    linkElement.classList.add('bulbaLink');
+    let linkImgElement = document.createElement('img');
+    linkImgElement.src = 'img/bulba.png';
+    let imgElement = document.createElement('img');
+    imgElement.src = img
+    linkElement.appendChild(linkImgElement);
+    modal.appendChild(closeButElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modal.appendChild(linkElement);
+    modal.appendChild(imgElement);
+    modalBox.appendChild(modal);
+    modalBox.classList.add('is-visible');
+  }
+
+  function hideMod () {
+    let modalBox = document.querySelector('#modal-container')
+    modalBox.classList.remove('is-visible')
+  }
 
   return {
     add: add,
@@ -105,6 +137,8 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     getDex: getDex,
+    showMod: showMod,
+    hideMod: hideMod,
   }; 
 })();
 

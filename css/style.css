@@ -47,3 +47,34 @@ body {
     opacity: 0.92;
     cursor: pointer;
 }
+
+/*-----Modal Styles-----*/
+
+#modal-container {
+    display: none;
+}
+
+#modal-container.is-visible {
+    position: fixed;
+    margin-left: 40%;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 999;
+    overflow: auto;
+    display: grid;
+    text-align: right;
+}
+
+.modal {
+    margin-left: 40%;
+    display: flex;
+    background: #ffe0ad;
+    padding: 15px;
+    width: 59%;
+    text-align: left;
+}
