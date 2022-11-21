@@ -20,7 +20,7 @@ let pokemonRepository = (function () {
 
   function showDetials(pokemon){
     loadDetails(pokemon).then(function () {  
-      showMod(pokemon.dexNum + ' ' + pokemon.name, pokemon.height, pokemon.detailsUrl, pokemon.name, pokemon.imageUrl);
+      showMod(pokemon.dexNum + ' ' + pokemon.name, pokemon.height, pokemon.weight, pokemon.name, pokemon.imageUrl);
     });
   };
 
@@ -68,8 +68,9 @@ let pokemonRepository = (function () {
       return response.json();
     }).then(function(details) {
       item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
+      item.height = Number(Math.round((details.height * 3.94)+'e2')+'e-2');
       item.types = details.types;
+      item.weight = Number(Math.round((details.weight * .220462)+'e2')+'e-2');
     }).catch(function(e) {
       console.error(e);
     });
@@ -106,7 +107,7 @@ let pokemonRepository = (function () {
     let titleElement = document.createElement('h1');
     titleElement.innerText = title;
     let contentElement = document.createElement('p');
-    contentElement.innerText = 'Height: ' + height + '\n\n' + 'Details: ' + text;
+    contentElement.innerText = 'Height: ' + height + '\"' + '\n\n' + 'Weight: ' + text + ' ' + 'lbs.';
     let linkElement = document.createElement('a');
     linkElement.classList.add('bulbaLink')
     linkElement.href = 'https://bulbapedia.bulbagarden.net/wiki/' + bulba + '_(Pokémon)';
