@@ -39,9 +39,15 @@ let pokemonRepository = (function () {
 
     createli.appendChild(createbut);
 
+    createbut.classList.add('btn');
+
+    createbut.classList.add('btn-info');
+
     pokemon_list.appendChild(createli);
 
-    createli.classList.add('pokemon')
+    createli.classList.add('pokemon');
+
+    createli.classList.add('list-group-item');
   };
 
   function loadList() {
