@@ -56,13 +56,10 @@ body {
 
 #modal-container.is-visible {
     position: fixed;
-    margin-left: 50%;
     box-sizing: content-box;
-    top: 0;
-    left: 0;
-    width: 50%;
+    width: 100%;
     height: 100%;
-    background: #ffe0ad;
+    background: rgba(0, 0, 0, 45%);
     z-index: 999;
     overflow: auto;
     display: grid;
@@ -70,18 +67,15 @@ body {
 }
 
 .modal {
-    margin-left: 5px;
     display: inline-block;
     background: #ffe0ad;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    text-align: left;
-    
+    width: 40%;
+    height: 60%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .modal-close {
-    position: fixed;
     float: left;
     border: 0;
     background: none;

@@ -112,6 +112,7 @@ let pokemonRepository = (function () {
     closeButElement.addEventListener('click', hideMod);
     let titleElement = document.createElement('h1');
     titleElement.innerText = title;
+    titleElement.classList.add('modal-title');
     let contentElement = document.createElement('p');
     contentElement.innerText = 'Height: ' + height + '\"' + '\n\n' + 'Weight: ' + text + ' ' + 'lbs.';
     let linkElement = document.createElement('a');
