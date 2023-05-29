@@ -59,7 +59,7 @@ body {
     box-sizing: content-box;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 45%);
+    background: rgba(0, 0, 0, 80%);
     z-index: 999;
     overflow: auto;
     display: grid;
