@@ -146,7 +146,7 @@ let pokemonRepository = (function () {
 
   modalTitle.innerText = title;
 
-  profileImg.src = img;
+  profileImg.src.innerText = img;
 
   profileText.innerText = 'Height: ' + height + '\"' + '\n\n' + 'Weight: ' + text + ' ' + 'lbs.';
 
