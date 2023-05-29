@@ -43,6 +43,10 @@ let pokemonRepository = (function () {
 
     createbut.classList.add('btn-info');
 
+    createbut.setAttribute('data-toggle', 'modal');
+
+    createbut.setAttribute('data-target', '#modal-container');
+
     pokemon_list.appendChild(createli);
 
     createli.classList.add('pokemon');
