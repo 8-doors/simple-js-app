@@ -140,7 +140,7 @@ let pokemonRepository = (function () {
  function showMod(title, height, text, bulba, img) {
 
   let modalTitle = document.querySelector('.modal-title');
-  let profileImg = document.querySelector('.proimage');
+  let profileImg = document.querySelector('.proimg');
   let profileText = document.querySelector('.modal-body-text');
   let bulbapedia = document.querySelector('#bLink');
 
