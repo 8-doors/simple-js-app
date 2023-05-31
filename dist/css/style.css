@@ -92,3 +92,11 @@ Silkscreen:https://fonts.google.com/specimen/Silkscreen?category=Display,Monospa
 .h1 {
     padding-top:20px;
 }
+
+#pokemonTitle {
+    font-family: 'Silkscreen', sans-serif;
+}
+
+.navbar-brand {
+    font-family: 'Silkscreen', sans-serif;
+}
