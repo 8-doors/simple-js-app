@@ -1,1 +1,98 @@
-body{background-color:#a8c2f0}.pokemon-list{list-style-type:none}.pokemon button{border:2.55px #cc7e00;border-radius:2.125px;display:inline-block;background-color:#ffe0ad;color:#000;text-decoration:none;padding-top:25.5px;padding-bottom:25.5px;padding-inline:17px;border-bottom:3.4px solid;margin-bottom:8.5px;font-family:Silkscreen,sans-serif;font-size:25.5px;font-weight:400}.pokemon button:hover{opacity:.92;cursor:pointer}#modal-container{display:none}#modal-container.is-visible{position:fixed;box-sizing:content-box;width:100%;height:100%;background:rgba(0,0,0,80%);z-index:999;overflow:auto;display:grid;text-align:left}.modal{display:inline-block;width:40%;height:60%;margin:0 auto;text-align:center}.modal-close{float:left;border:0;background:0 0;color:#000;text-decoration:underline}.bulbaLink{max-width:50px;max-height:50px}.proimg{float:center;width:300px;height:300px}.h1{padding-top:20px}
+/*
+Colors Used
+Vermilion: #ea0f0b
+Baby Blue Eyes: #a8c2f0
+Navajo White: #ffe0ad
+Bronze: #cc7e00
+Emerald: #08d97e
+Silver Chalice: #adadae
+
+Fonts Used
+VT323:https://fonts.google.com/specimen/Silkscreen?category=Display,Monospace
+Silkscreen:https://fonts.google.com/specimen/Silkscreen?category=Display,Monospace
+*/
+
+body {
+    background-color: #a8c2f0;
+}
+
+/*-----Pokemon List Styles-----*/
+
+.pokemon-list {
+    list-style-type: none;
+      
+}
+
+.pokemon button {
+    border: 1;
+    border-width: 2.55px;
+    border-color: #cc7e00;
+    border-radius: 2.125px;
+    display: inline-block;
+    font-family: inherit;
+    background-color: #ffe0ad;
+    color: #000000;
+    text-decoration: none;
+    padding-top: 25.5px;
+    padding-bottom: 25.5px;
+    padding-inline: 17px;
+    border-bottom: 3.4px solid rgba(204, 126, 0, alpha);
+    margin-bottom: 8.5px;
+    font-family: 'Silkscreen', sans-serif;
+    font-size: 25.5px;
+    font-weight: 400;
+}
+
+.pokemon button:hover {
+    opacity: 0.92;
+    cursor: pointer;
+}
+
+/*-----Modal Styles-----*/
+
+#modal-container {
+    display: none;
+}
+
+#modal-container.is-visible {
+    position: fixed;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 80%);
+    z-index: 999;
+    overflow: auto;
+    display: grid;
+    text-align: left;
+}
+
+.modal {
+    display: inline-block;
+    width: 40%;
+    height: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.modal-close {
+    float: left;
+    border: 0;
+    background: none;
+    color: #000000;
+    text-decoration: underline;
+}
+
+.bulbaLink {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.proimg {
+    float: center;
+    width: 300px;
+    height: 300px;
+}
+
+.h1 {
+    padding-top:20px;
+}
