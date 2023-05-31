@@ -100,3 +100,11 @@ Silkscreen:https://fonts.google.com/specimen/Silkscreen?category=Display,Monospa
 .navbar-brand {
     font-family: 'Silkscreen', sans-serif;
 }
+
+.modal-body-text {
+    font-family: 'Silkscreen', sans-serif;
+}
+
+#web-title {
+    font-family: 'Silkscreen', sans-serif; 
+}
